@@ -65,17 +65,3 @@ if ("IntersectionObserver" in window && sections.length && navAnchors.length) {
 
   sections.forEach((section) => navObserver.observe(section));
 }
-
-// A user site exposes its public handle in its GitHub Pages hostname.
-const account = /^([a-z0-9][a-z0-9-]*)\.github\.io$/i.exec(window.location.hostname);
-if (account) {
-  const handle = account[1];
-  const title = document.querySelector("#home h1");
-  const profile = document.getElementById("github-profile");
-  if (title) title.textContent = handle;
-  if (profile) {
-    profile.href = "https://github.com/" + handle;
-    profile.style.removeProperty("display");
-  }
-  document.title = handle + " | CSI205TC Lab Portfolio";
-}
